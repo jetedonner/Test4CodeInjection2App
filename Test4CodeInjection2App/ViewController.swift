@@ -21,6 +21,19 @@ class ViewController: NSViewController {
         }
     }
 
+    @IBAction func clickMSG(_ sender: Any){
+        let answer = dialogOKCancel(question: "Ok?", text: "Choose your answer.")
+    }
+    
+    func dialogOKCancel(question: String, text: String) -> Bool {
+        let alert = NSAlert()
+        alert.messageText = question
+        alert.informativeText = text
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: "Cancel")
+        return alert.runModal() == .alertFirstButtonReturn
+    }
 
 }
 
